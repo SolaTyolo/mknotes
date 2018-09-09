@@ -3,16 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Snapnotes</title>
+    <title>mknotes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/popup.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/markdown.css" />
 </head>
 <body>
     <!-- 左边编写的markdown -->
-    <div id="write-screen"><textarea id="text"></textarea></div>
+    <div id="write-screen">
+        <div id="text-contain">
+            <textarea id="text"></textarea>
+        </div>
+    </div>
 
     <!-- 右边的显示屏幕 -->
-    <div id="show-screen"></div>
+    <div id="show-screen" class="markdown-body"></div>
 </body>
 <script type="text/javascript" src="assets/js/showdown.min.js"></script>
 <script type="text/javascript" src="assets/js/popup.js"></script>

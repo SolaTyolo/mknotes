@@ -9,25 +9,27 @@ function saveChanges() {
         message('Error: No value specified');
         return;
     }
+    saveValue(theValue)
     trans2Html(theValue)
 }
 
-function trans2Html(text){
-    chrome.storage.sync.set({ 'value': text }, function () {
-        var converter = new showdown.Converter();
-        document.getElementById('show-screen').innerHTML = converter.makeHtml(text);
-        message('Settings saved');
-    });
+function  saveValue(text) {
+    localStorage.setItem("value",text)
 }
 
+function trans2Html(text){
+    var converter = new showdown.Converter();
+    document.getElementById('show-screen').innerHTML = converter.makeHtml(text);
+    message('Settings saved');
+}
+
+
 window.onload=function () {
-    chrome.storage.sync.get(['value'], function (result) {
-        var text = result.value
-        if(text !== undefined){
-            document.getElementById('text').value = text
-            trans2Html(text)
-        }
-    });  
+    var text = localStorage.getItem("value")
+    if(text !== undefined){
+        document.getElementById('text').value = text
+        trans2Html(text)
+    }
 }
 
 document.onkeyup=function(){
