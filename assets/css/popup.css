@@ -2,21 +2,24 @@ body{
     min-width: 500px;
     min-height: 400px;
     height: 400px;
-    background: #EFECCA
+    background:grey;
 }
 
 #write-screen{
     float: left;
     width: 49%;
     height: 100%;
-    border: 1px solid;
+    border-right: 1px solid;
+    background: #000000;
 }
 
 #show-screen{
     float: right;
     width: 49%;
     height: 100%;
-    border: 1px solid;
+    background: #ffffff;
+    color: #000000;
+    overflow-y: hidden;
 }
 
 #text{
@@ -27,4 +30,6 @@ body{
     background: none;
     font-size: 14px;
     resize: none;
+    overflow-y: hidden;
+    color: #ffffff;
 }

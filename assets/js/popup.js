@@ -14,7 +14,8 @@ function saveChanges() {
 
 function trans2Html(text){
     chrome.storage.sync.set({ 'value': text }, function () {
-        document.getElementById('show-screen').innerHTML = marked(text);
+        var converter = new showdown.Converter();
+        document.getElementById('show-screen').innerHTML = converter.makeHtml(text);
         message('Settings saved');
     });
 }
@@ -22,8 +23,10 @@ function trans2Html(text){
 window.onload=function () {
     chrome.storage.sync.get(['value'], function (result) {
         var text = result.value
-        document.getElementById('text').value = text
-        trans2Html(text)
+        if(text !== undefined){
+            document.getElementById('text').value = text
+            trans2Html(text)
+        }
     });  
 }
 
