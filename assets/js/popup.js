@@ -14,7 +14,7 @@ function saveChanges() {
 }
 
 function  saveValue(text) {
-    localStorage.setItem("value",text)
+    storage.setItem("value",text)
 }
 
 function trans2Html(text){
@@ -25,7 +25,7 @@ function trans2Html(text){
 
 
 window.onload=function () {
-    var text = localStorage.getItem("value")
+    var text = storage.getItem("value")
     if(text !== undefined){
         document.getElementById('text').value = text
         trans2Html(text)
