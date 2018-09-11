@@ -1,12 +1,8 @@
 
-function message(mes){
-    console.log(mes);
-}
-
 function saveChanges() {
     var theValue = document.getElementById('text').value;
     if (!theValue) {
-        message('Error: No value specified');
+        console.log('Error: No value specified');
         return;
     }
     saveValue(theValue)
@@ -14,16 +10,16 @@ function saveChanges() {
 }
 
 function  saveValue(text) {
-    storage.setItem("value",text)
+    storage.setItem("value",text,7*86400)
 }
 
 function trans2Html(text){
     var converter = new showdown.Converter();
     document.getElementById('show-screen').innerHTML = converter.makeHtml(text);
-    message('Settings saved');
+    console.log('Settings saved');
 }
 
-
+//页面加载
 window.onload=function () {
     var text = storage.getItem("value")
     if(text !== undefined){
@@ -32,6 +28,12 @@ window.onload=function () {
     }
 }
 
+//页面关闭
+window.onunload = function(){
+
+}
+
+//页面输入的时候
 document.onkeyup=function(){
     var oEvent = window.event;
     console.log(oEvent)

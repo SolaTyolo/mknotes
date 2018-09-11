@@ -12,6 +12,7 @@
     // @params value string object
     // @params ttl number
     storage.setItem = function(key,value,ttl) {
+        console.log(ttl)
         if(this.support){
             //localStorage储存
             if(typeof key != 'string'){
@@ -34,7 +35,7 @@
                 value: JSON.stringify(value),
                 time: time
             }
-            localStorage.setItem(key,JOSN.stringify(setValue));
+            localStorage.setItem(key,JSON.stringify(setValue));
         }else{
             storage.setCookie(key, value, ttl)
         }
