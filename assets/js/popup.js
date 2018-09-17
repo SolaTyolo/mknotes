@@ -10,7 +10,7 @@ function saveChanges() {
 }
 
 function  saveValue(text) {
-    storage.setItem("value",text,7*86400)
+    storage.setItem("value",text,7*86400*1000)
 }
 
 function trans2Html(text){
